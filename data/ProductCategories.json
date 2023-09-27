@@ -1,0 +1,22 @@
+[
+  {
+    "CategoryId": 1,
+    "UserId": [1, 4, 5]
+  },
+  {
+    "CategoryId": 2,
+    "UserId": [1, 2, 4, 5]
+  },
+  {
+    "CategoryId": 3,
+    "UserId": [2, 3, 5]
+  },
+  {
+    "CategoryId": 4,
+    "UserId": [2, 3]
+  },
+  {
+    "CategoryId": 5,
+    "UserId": [1, 2, 3, 4]
+  }
+]
