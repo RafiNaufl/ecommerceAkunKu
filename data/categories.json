@@ -1,22 +1,22 @@
 [
     {
         "id" : 1,
-        "name": "Mobile Legend"
+        "name": "FPS"
     },
     {
         "id" : 2,
-        "name": "Genshin Impact"
+        "name": "Gacha"
     },
     {
         "id" : 3,
-        "name": "Free Fire"
+        "name": "MOBA"
     },
     {
         "id" : 4,
-        "name": "Fifa Online"
+        "name": "Multiplayer"
     },
     {
         "id" : 5,
-        "name": "Roblox"
+        "name": "RPG"
     } 
 ]
