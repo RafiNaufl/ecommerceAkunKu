@@ -1,22 +1,30 @@
 [
   {
-    "CategoryId": 1,
-    "UserId": [1, 4, 5]
+    "ProductId": 1,
+    "CategoryId": 1
   },
   {
-    "CategoryId": 2,
-    "UserId": [1, 2, 4, 5]
+    "ProductId": 1,
+    "CategoryId": 2
   },
   {
-    "CategoryId": 3,
-    "UserId": [2, 3, 5]
+    "ProductId": 1,
+    "CategoryId": 3
   },
   {
-    "CategoryId": 4,
-    "UserId": [2, 3]
+    "ProductId": 2,
+    "CategoryId": 2
   },
   {
-    "CategoryId": 5,
-    "UserId": [1, 2, 3, 4]
+    "ProductId": 2,
+    "CategoryId": 4
+  },
+  {
+    "ProductId": 3,
+    "CategoryId": 3
+  },
+  {
+    "ProductId": 3,
+    "CategoryId": 5
   }
-]
+]  

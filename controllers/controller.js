@@ -1,4 +1,4 @@
-const { Category, Product, User, Profile } = require('../models');
+const { Category, Product, User, Profile, ProductCategories } = require('../models');
 const { Op } = require('sequelize')
 class Controller {
 
@@ -15,12 +15,12 @@ class Controller {
     }
 
     static getProduct(req, res) {
-        Product.findAll()
+        Product.findAll({include:Category})
         .then((products) => {
             res.render('index.ejs', { products });
         })
         .catch((err) => {
-            res.send(err);
+            res.send(err.message);
         });   
     }
 
@@ -29,7 +29,7 @@ class Controller {
     }
     
     static postAddProduct(req, res) {
-        const { name, description, price, photo, stock } = req.body;
+        const { name, description, price, photo, stock, categoryId } = req.body;
     
         Product.create({
         name,
@@ -39,12 +39,17 @@ class Controller {
         stock,
         })
         .then((product) => {
+            if (categoryId && categoryId.length > 0) {
+                product.addCategories(categoryId);
+            }
+
             res.redirect('/');
         })
         .catch((err) => {
             res.send(err); 
         });
     }
+
     
 }
 

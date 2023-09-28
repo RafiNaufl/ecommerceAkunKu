@@ -13,6 +13,9 @@
             height: 200px;
             object-fit: cover;
         }
+        .card {
+            font-size: 13px;
+        }
     </style>
 </head>
 <body>
@@ -48,7 +51,7 @@
                 </form>
                 <ul class="navbar-nav ms-2">
                     <li class="nav-item">
-                        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#signInModal">
+                        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#signInModal" style="margin-right: 5px;">
                             Sign In
                         </button>
                     </li>
@@ -74,9 +77,13 @@
                 <div class="col-md-2 col-12 mb-5">
                     <div class="card custom-card">
                         <img src="<%= product.photo %>" class="card-img-top" alt="<%= product.name %>">
-                        <div class="card-body">
-                            <p class="card-title"><%= product.name %></p>
-                            <p class="card-text"><%= product.Category.name %></p>
+                        <div class="card-body mb-4">
+                            <p class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><%= product.name %></p>
+                            <div class="d-flex flex-wrap">
+                                <% product.Categories.forEach((category) => { %>
+                                  <span class="badge bg-secondary me-1 mb-2"><%= category.name %></span>
+                                <% }); %>
+                            </div>
                             <p class="card-text">Harga: Rp <%= product.price %></p>
                             <a href="#" class="btn btn-primary" style="position: absolute; bottom: 0; left: 0; right: 0;">Beli</a>
                         </div>
