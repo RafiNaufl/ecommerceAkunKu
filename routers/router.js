@@ -7,10 +7,20 @@ const Controller = require('../controllers/controller');
 router.get('/', Controller.getProduct);
 router.get('/products/add', Controller.getAddProduct);
 router.post('/products/add', Controller.postAddProduct);
-// router.get('/login', Controller.getLogin);
-// router.post('/login', Controller.postLogin);
-// router.get('/register', Controller.getRegister)
-// router.post('/register', Controller.postRegister);
+router.get('/login', Controller.getLogin);
+router.post('/login', Controller.postLogin);
+router.get('/register', Controller.getRegister)
+router.post('/register', Controller.postRegister);
+
+router.use(function(req, res, next) {
+    // console.log(req.session);
+    if (!req.session.userId) {
+        const err= 'You must be logged in to access'
+        res.redirect(`/login?{err}`);
+    } else {
+        next();
+    }
+})
 // router.get('/logout', Controller.getLogout);
 
 // router.get('/profile', Controller.getProfile),
