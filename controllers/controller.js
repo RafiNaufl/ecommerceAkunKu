@@ -1,4 +1,5 @@
-const { Category, Product, User, Profile } = require('../models/index');
+const { Category, Product, User, Profile, ProductCategories } = require('../models');
+const { Op } = require('sequelize')
 const bcrypt = require('bcryptjs');
 class Controller {
 
@@ -52,11 +53,39 @@ class Controller {
     }
 
     static getProduct(req, res) {
-        Product.findAll()
+        Product.findAll({include:Category})
             .then((products) => {
-                res.send(products);
+                res.render('index.ejs', { products });
+        })
+        .catch((err) => {
+            res.send(err.message);
+        });   
+    }
+
+    static getAddProduct(req, res) {
+        res.render('addFormProduct.ejs');
+    }
+    
+    static postAddProduct(req, res) {
+        const { name, description, price, photo, stock, categoryId } = req.body;
+    
+        Product.create({
+        name,
+        description,
+        price,
+        photo,
+        stock,
             })
-            .catch((err) => { res.send(err) });
+            .then((product) => {
+            if (categoryId && categoryId.length > 0) {
+                product.addCategories(categoryId);
+            }
+
+            res.redirect('/');
+        })
+        .catch((err) => {
+             res.send(err); 
+         });
     }
 
     static getAddProduct(req, res) {
@@ -99,6 +128,8 @@ class Controller {
             res.redirect('/login');
         })
     }
+
+    
 }
 
 

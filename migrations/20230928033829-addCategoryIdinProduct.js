@@ -4,7 +4,13 @@
 module.exports = {
   up (queryInterface, Sequelize) {
     return queryInterface.addColumn('Products', 'CategoryId', {
-      type: Sequelize.INTEGER
+      type: Sequelize.INTEGER,
+      references: {
+        model: 'Categories',
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     })
 
   },

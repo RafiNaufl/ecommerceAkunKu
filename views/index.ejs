@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Produk</title>
+    <!-- Tautkan Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .custom-card {
+            height: 100%;
+            width: 100%;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .card {
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/logo.jpg" alt="Logo" width="60" height="60">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Kategori
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Mobile Legend</a></li>
+                            <li><a class="dropdown-item" href="#">Free Fire</a></li>
+                            <li><a class="dropdown-item" href="#">Genshin Impact</a></li>
+                            <li><a class="dropdown-item" href="#">Fifa Mobile</a></li>
+                            <li><a class="dropdown-item" href="#">Roblox</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex flex-grow-1">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Cari produk" aria-label="Cari">
+                        <button class="btn btn-outline-success" type="submit">Cari</button>
+                    </div>
+                </form>
+                <ul class="navbar-nav ms-2">
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#signInModal" style="margin-right: 5px;">
+                            Sign In
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#signUpModal">
+                            Sign Up
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <a href="/products/add" class="btn btn-primary mb-3">Tambah Produk</a>
+    </div>
+
+    <!-- Card -->
+    <div class="container mt-4">
+        <h1>Daftar Produk</h1>
+        <div class="row">
+            <% products.forEach((product) => { %>
+                <div class="col-md-2 col-12 mb-5">
+                    <div class="card custom-card">
+                        <img src="<%= product.photo %>" class="card-img-top" alt="<%= product.name %>">
+                        <div class="card-body mb-4">
+                            <p class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><%= product.name %></p>
+                            <div class="d-flex flex-wrap">
+                                <% product.Categories.forEach((category) => { %>
+                                  <span class="badge bg-secondary me-1 mb-2"><%= category.name %></span>
+                                <% }); %>
+                            </div>
+                            <p class="card-text">Harga: Rp <%= product.price %></p>
+                            <a href="#" class="btn btn-primary" style="position: absolute; bottom: 0; left: 0; right: 0;">Beli</a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <!-- Modal Sign Up -->
+    <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Form Sign Up -->
+                    <form action="/signup" method="POST">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Sign In -->
+    <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signInModalLabel">Sign In</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Form Sign In -->
+                    <form action="/login" method="POST">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tautkan Bootstrap JS (opsional, tergantung pada kebutuhan) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
