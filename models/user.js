@@ -61,7 +61,8 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Password must be at least 6 characters long'
         }
       }
-    }
+    },
+    role: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',
