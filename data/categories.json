@@ -1,22 +1,22 @@
 [
     {
         "id" : 1,
-        "categories": "Mobile Legend"
+        "name": "Mobile Legend"
     },
     {
         "id" : 2,
-        "categories": "Genshin Impact"
+        "name": "Genshin Impact"
     },
     {
         "id" : 3,
-        "categories": "Free Fire"
+        "name": "Free Fire"
     },
     {
         "id" : 4,
-        "categories": "Fifa Online"
+        "name": "Fifa Online"
     },
     {
         "id" : 5,
-        "categories": "Roblox"
+        "name": "Roblox"
     } 
 ]
