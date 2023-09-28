@@ -4,6 +4,7 @@ const fs = require('fs');
 module.exports = {
   up (queryInterface, Sequelize) {
     const data = JSON.parse(fs.readFileSync('./data/profiles.json', 'utf8')).map((el)=>{
+      delete el.id
       el.createdAt = new Date()
       el.updatedAt = new Date()
       return el
