@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Produk Baru</title>
+    <!-- Tambahkan tautan CSS Bootstrap di sini -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Tambah Produk Baru</h1>
+        <form action="/products/add" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nama Produk</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Deskripsi</label>
+                <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Harga</label>
+                <input type="number" class="form-control" id="price" name="price" required>
+            </div>
+            <div class="mb-3">
+                <label for="photo" class="form-label">URL Foto Produk</label>
+                <input type="text" class="form-control" id="photo" name="photo" required>
+            </div>
+            <div class="mb-3">
+                <label for="stock" class="form-label">Stok</label>
+                <input type="number" class="form-control" id="stock" name="stock" required>
+            </div>
+            <!-- Select Category -->
+            <div class="mb-3">
+                <label for="category" class="form-label">Kategori</label>
+                <select class="form-select" id="category" name="categoryId" required>
+                    <option value="1">Mobile Legend</option>
+                    <option value="2">Genshin Impact</option>
+                    <option value="3">Free Fire</option>
+                    <option value="4">Fifa Online</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Tambah Produk</button>
+        </form>
+    </div>
+
+    <!-- Tambahkan tautan JavaScript Bootstrap di sini jika diperlukan -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

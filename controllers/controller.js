@@ -1,4 +1,5 @@
-const { Category, Product, User, Profile } = require('../models/index');
+const { Category, Product, User, Profile } = require('../models');
+const { Op } = require('sequelize')
 class Controller {
 
     static getLogin(req, res) {
@@ -16,10 +17,35 @@ class Controller {
     static getProduct(req, res) {
         Product.findAll()
         .then((products) => {
-            res.send(products);
+            res.render('index.ejs', { products });
         })
-        .catch((err) => {res.send(err)});
+        .catch((err) => {
+            res.send(err);
+        });   
     }
+
+    static getAddProduct(req, res) {
+        res.render('addFormProduct.ejs');
+    }
+    
+    static postAddProduct(req, res) {
+        const { name, description, price, photo, stock } = req.body;
+    
+        Product.create({
+        name,
+        description,
+        price,
+        photo,
+        stock,
+        })
+        .then((product) => {
+            res.redirect('/');
+        })
+        .catch((err) => {
+            res.send(err); 
+        });
+    }
+    
 }
 
 
