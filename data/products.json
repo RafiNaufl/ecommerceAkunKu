@@ -1,0 +1,139 @@
+[
+    {
+      "name": "Akun FIFA Online Collector's Edition",
+      "description": "Akun FIFA Online dengan koleksi pemain dan kartu langka, serta tim kuat.",
+      "price": 550000,
+      "photo": "https://img.panditfootball.com/large/2021pndt/MBAPPE.jpg",
+      "stock": 3,
+      "CategoryId": 4,
+      "UserId": 3
+    },
+    {
+        "name": "Akun Roblox Builder",
+        "description": "Akun Roblox dengan akses penuh ke fitur pembangun dan kreasi.",
+        "price": 150000,
+        "photo": "https://www.internetmatters.org/wp-content/uploads/2020/08/roblox.jpg",
+        "stock": 5,
+        "CategoryId": 5,
+        "UserId": 2
+      },
+    {
+      "name": "Akun Mobile Legends Rank Legend",
+      "description": "Akun Mobile Legends dengan rank Legend, hero andalan, dan skin eksklusif.",
+      "price": 300000,
+      "photo": "https://rakyatbenteng.disway.id/upload/2051deab6273585e2e24791e0acf8375.jpg",
+      "stock": 4,
+      "CategoryId": 1,
+      "UserId": 4
+    },
+    {
+      "name": "Akun Genshin Impact AR 50",
+      "description": "Akun Genshin Impact dengan Adventure Rank 50, karakter 5-star, dan senjata kuat.",
+      "price": 800000,
+      "photo": "https://cdnportal.mobalytics.gg/production/2022/03/7ea956d3-genshin-impact-feature-art.jpg",
+      "stock": 3,
+      "CategoryId": 2,
+      "UserId": 2
+    },
+    {
+      "name": "Akun Mobile Legends Rank Epic",
+      "description": "Akun Mobile Legends dengan rank Epic, hero andalan, dan skin keren.",
+      "price": 250000,
+      "photo": "https://rakyatbenteng.disway.id/upload/2051deab6273585e2e24791e0acf8375.jpg",
+      "stock": 6,
+      "CategoryId": 1,
+      "UserId": 5
+    },
+    {
+        "name": "Akun Roblox Premium",
+        "description": "Akun Roblox Premium dengan banyak item eksklusif dan akses ke fitur premium.",
+        "price": 200000,
+        "photo": "https://www.internetmatters.org/wp-content/uploads/2020/08/roblox.jpg",
+        "stock": 10,
+        "CategoryId": 5,
+        "UserId": 1
+      },
+    {
+      "name": "Akun Free Fire Diamond Master",
+      "description": "Akun Free Fire dengan banyak diamond, skin langka, dan kemampuan tembak luar biasa.",
+      "price": 400000,
+      "photo": "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/10/22/2254820072.jpg",
+      "stock": 7,
+      "CategoryId": 3,
+      "UserId": 5
+    },
+    {
+      "name": "Akun Mobile Legends Rank Grandmaster",
+      "description": "Akun Mobile Legends dengan rank Grandmaster, hero lengkap, dan koleksi skin unik.",
+      "price": 150000,
+      "photo": "https://rakyatbenteng.disway.id/upload/2051deab6273585e2e24791e0acf8375.jpg",
+      "stock": 9,
+      "CategoryId": 1,
+      "UserId": 3
+    },
+    {
+      "name": "Akun Genshin Impact AR 35",
+      "description": "Akun Genshin Impact dengan Adventure Rank 35, karakter menarik, dan senjata berkualitas.",
+      "price": 500000,
+      "photo": "https://cdnportal.mobalytics.gg/production/2022/03/7ea956d3-genshin-impact-feature-art.jpg",
+      "stock": 4,
+      "CategoryId": 2,
+      "UserId": 4
+    },
+    {
+      "name": "Akun Mobile Legends Rank Mythic",
+      "description": "Akun Mobile Legends dengan rank Mythic, hero lengkap, dan banyak skin eksklusif.",
+      "price": 500000,
+      "photo": "https://rakyatbenteng.disway.id/upload/2051deab6273585e2e24791e0acf8375.jpg",
+      "stock": 5,
+      "CategoryId": 1,
+      "UserId": 1
+    },
+    {
+        "name": "Akun Roblox Game Developer",
+        "description": "Akun Roblox dengan kemampuan pengembangan game dan akses eksklusif.",
+        "price": 300000,
+        "photo": "https://www.internetmatters.org/wp-content/uploads/2020/08/roblox.jpg",
+        "stock": 8,
+        "CategoryId": 5,
+        "UserId": 3
+      },
+    {
+      "name": "Akun Genshin Impact AR 40",
+      "description": "Akun Genshin Impact dengan Adventure Rank 40, karakter andalan, dan senjata langka.",
+      "price": 600000,
+      "photo": "https://cdnportal.mobalytics.gg/production/2022/03/7ea956d3-genshin-impact-feature-art.jpg",
+      "stock": 2,
+      "CategoryId": 2,
+      "UserId": 1
+    },
+    {
+      "name": "Akun Free Fire Pro Player",
+      "description": "Akun Free Fire dengan banyak diamond, skin langka, dan ranking tinggi.",
+      "price": 300000,
+      "photo": "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/10/22/2254820072.jpg",
+      "stock": 7,
+      "CategoryId": 3,
+      "UserId": 3
+    },
+    {
+        "name": "Akun Roblox Adventure",
+        "description": "Akun Roblox dengan akses ke berbagai petualangan dan cerita eksklusif.",
+        "price": 180000,
+        "photo": "https://www.internetmatters.org/wp-content/uploads/2020/08/roblox.jpg",
+        "stock": 4,
+        "CategoryId": 5,
+        "UserId": 1
+      },
+      {
+        "name": "Akun FIFA Online Top Squad",
+        "description": "Akun FIFA Online dengan tim kuat yang siap bersaing di level tertinggi.",
+        "price": "Rp 600,000",
+        "photo": "https://img.panditfootball.com/large/2021pndt/MBAPPE.jpg",
+        "stock": 2,
+        "CategoryId": 4,
+        "UserId": 2
+      }
+
+  ]
+  
