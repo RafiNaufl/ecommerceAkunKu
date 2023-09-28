@@ -128,7 +128,7 @@
       {
         "name": "Akun FIFA Online Top Squad",
         "description": "Akun FIFA Online dengan tim kuat yang siap bersaing di level tertinggi.",
-        "price": "Rp 600,000",
+        "price": 600000,
         "photo": "https://img.panditfootball.com/large/2021pndt/MBAPPE.jpg",
         "stock": 2,
         "CategoryId": 4,
