@@ -1,0 +1,22 @@
+[
+    {
+        "id" : 1,
+        "categories": "Mobile Legend"
+    },
+    {
+        "id" : 2,
+        "categories": "Genshin Impact"
+    },
+    {
+        "id" : 3,
+        "categories": "Free Fire"
+    },
+    {
+        "id" : 4,
+        "categories": "Fifa Online"
+    },
+    {
+        "id" : 5,
+        "categories": "Roblox"
+    } 
+]
