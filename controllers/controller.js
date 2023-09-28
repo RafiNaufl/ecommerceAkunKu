@@ -50,9 +50,49 @@ class Controller {
         });
     }
 
+    static getEditProduct(req, res) {
+        const productId = req.params.id;
+        Product.findByPk(productId)
+          .then((product) => {
+              res.render('editProduct', { product });
+          })
+          .catch((err) => {
+            res.send(err); 
+        });
+      }
+
+    static postEditProduct(req, res) {
+        const productId = req.params.id;
+        const updatedProductData = req.body;
+
+        Product.findByPk(productId)
+            .then((product) => {
+                return product.update(updatedProductData);
+            })
+            .then(() => {
+                res.redirect('/'); 
+            })
+            .catch((err) => {
+                res.send(err); 
+            });
+    }
+    
+    static getDeleteProduct(req, res) {
+        const productId = req.params.id;
+    
+        Product.findByPk(productId)
+          .then((product) => {
+              return product.destroy();
+          })
+          .then(() => {
+            res.redirect('/'); 
+          })
+          .catch((err) => {
+            res.send(err); 
+          });
+      }
+
     
 }
-
-
 
 module.exports = Controller

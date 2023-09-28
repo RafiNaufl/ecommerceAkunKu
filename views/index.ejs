@@ -8,6 +8,12 @@
         .custom-card {
             height: 100%;
             width: 100%;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .custom-card:hover {
+            transform: translateY(-5px); 
         }
         .card-img-top {
             height: 200px;
@@ -65,8 +71,19 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
-        <a href="/products/add" class="btn btn-primary mb-3">Tambah Produk</a>
+    <!-- Jumbotrons -->
+    <div class="container my-4" style="background-color:whitesmoke; border-radius: 10px;">
+        <div class="p-5 text-center bg-body-tertiary rounded-3"><br>
+          <h1 class="text-body-emphasis">AkunKu</h1>
+          <p class="col-lg-8 mx-auto fs-5 text-muted">
+            AkunKu adalah sebuah platform marketplace penyedia akun game online terpercaya. Dibentuk untuk memenuhi kebutuhan para gamer yang ingin memiliki akun-akun game premium dengan keamanan dan kenyamanan terjamin.
+          </p>
+          <div class="d-inline-flex gap-2 mb-5">
+            <a href="/products/add"><button class="d-inline-flex align-items-center btn btn-danger btn-lg px-4 rounded-pill" type="button">
+              Jual Product
+            </button></a>
+          </div>
+        </div>
     </div>
 
     <!-- Card -->
@@ -74,8 +91,8 @@
         <h1>Daftar Produk</h1>
         <div class="row">
             <% products.forEach((product) => { %>
-                <div class="col-md-2 col-12 mb-5">
-                    <div class="card custom-card">
+                <div class="col-md-2 col-12 mb-3">
+                    <div class="card custom-card" data-bs-toggle="modal" data-bs-target="#productModal<%= product.id %>">
                         <img src="<%= product.photo %>" class="card-img-top" alt="<%= product.name %>">
                         <div class="card-body mb-4">
                             <p class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><%= product.name %></p>
@@ -85,13 +102,45 @@
                                 <% }); %>
                             </div>
                             <p class="card-text">Harga: Rp <%= product.price %></p>
-                            <a href="#" class="btn btn-primary" style="position: absolute; bottom: 0; left: 0; right: 0;">Beli</a>
+                            <p class="card-text">Stok: <%= product.stock %></p>
+                            <!-- <a href="#" class="btn btn-primary" style="position: absolute; bottom: 0; left: 0; right: 0;">Beli</a> -->
                         </div>
                     </div>
                 </div>
             <% }); %>
         </div>
     </div>
+
+    <!-- Modal Pop-up untuk Setiap Produk -->
+    <% products.forEach((product) => { %>
+        <div class="modal fade" id="productModal<%= product.id %>" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="productModalLabel"><%= product.name %></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Tampilkan semua data produk di sini -->
+                        <img src="<%= product.photo %>" class="card-img-top" alt="<%= product.name %>">
+                        <p>Nama: <%= product.name %></p>
+                        <p>Kategori: 
+                            <% product.Categories.forEach((category) => { %>
+                                <span class="badge bg-secondary me-2"><%= category.name %></span>
+                            <% }); %>
+                        </p>
+                        <p>Deskripsi: <%= product.description %></p>
+                        <p>Harga: Rp <%= product.price %></p>
+                        <p>Stok: <%= product.stock %></p>
+                        <!-- ... Tampilkan data produk lainnya di sini ... -->
+                        <a href="/products/buy/<%= product.id %>" class="btn btn-primary">Buy</a>
+                        <a href="/products/edit/<%= product.id %>" class="btn btn-success">Update</a>
+                        <a href="/products/delete/<%= product.id %>" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% }); %>
 
     <!-- Modal Sign Up -->
     <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
