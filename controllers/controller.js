@@ -1,17 +1,29 @@
 const { Category, Product, User, Profile } = require('../models/index');
+const bcrypt = require('bcryptjs');
 class Controller {
 
     static getLogin(req, res) {
+        const {error} = req.query
         res.send('test login');
-        // res.render('login');
+        // res.render('login', {error});
     }
 
     static postLogin(req, res) {
-        const { email, password } = req.body;
-        User.findByEmail(email)
-        .then((user) => {
-            res.send(user);
+        const { username, password } = req.body;
+        User.findOne({ where: { username } })
+        .then(user => {
+            if (user) {
+                const isPasswordValid = bcrypt.compareSync(password, user.password)
+                if (isPasswordValid) {
+                    return res.redirect('/products');
+                } else {
+                    return res.redirect('/login');
+                }
+            } else {
+                return res.redirect('/login');
+            }
         })
+        .catch((err) => { res.send(err) });
     }
 
     static getRegister(req, res) {
@@ -27,24 +39,24 @@ class Controller {
             password: password,
             role: role
         })
-        .then ((user) => {
-            res.redirect('/login');
-        })
+            .then((user) => {
+                res.redirect('/login');
+            })
         // User.findOne({where : {email: email, username: username}})
         // .then((user) => {
         //     if (user) {
         //         throw new Error ('User already exists');
         //     }
-            
+
         // })
     }
 
     static getProduct(req, res) {
         Product.findAll()
-        .then((products) => {
-            res.send(products);
-        })
-        .catch((err) => {res.send(err)});
+            .then((products) => {
+                res.send(products);
+            })
+            .catch((err) => { res.send(err) });
     }
 
     static getAddProduct(req, res) {
@@ -62,20 +74,20 @@ class Controller {
             photo: photo,
             stock: stock
         })
-        .then((products) => {
-            return products
-        })
-        .then((products)=>{
-            res.redirect('/products');
-        })
-        .catch((err) => {res.send(err)});
+            .then((products) => {
+                return products
+            })
+            .then((products) => {
+                res.redirect('/products');
+            })
+            .catch((err) => { res.send(err) });
     }
 
     static getCategories(req, res) {
         Category.findAll()
-       .then((categories) => {
-        res.send(categories);
-       })
+            .then((categories) => {
+                res.send(categories);
+            })
     }
 
     static logout(req, res) {
