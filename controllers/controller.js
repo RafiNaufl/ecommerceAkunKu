@@ -14,6 +14,26 @@ class Controller {
         })
     }
 
+    static getRegister(req, res) {
+        res.send('test register');
+        // res.render('register');
+    }
+
+    static postRegister(req, res) {
+        const { username, email, password } = req.body;
+        User.findOne({where : {email: email, username: username}})
+        .then((user) => {
+            if (user) {
+                throw new Error ('User already exists');
+            }
+            return User.create({
+                username: username,
+                email: email,
+                password: password
+            })
+        })
+    }
+
     static getProduct(req, res) {
         Product.findAll()
         .then((products) => {
