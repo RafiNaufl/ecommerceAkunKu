@@ -12,15 +12,25 @@ router.post('/login', Controller.postLogin);
 router.get('/register', Controller.getRegister)
 router.post('/register', Controller.postRegister);
 
-router.use(function(req, res, next) {
+router.use(function (req, res, next) {
     // console.log(req.session);
     if (!req.session.userId) {
-        const err= 'You must be logged in to access'
-        res.redirect(`/login?{err}`);
+        const err = 'You must be logged in to access'
+        res.redirect(`/login?${err}`);
     } else {
         next();
     }
 })
+
+const role = function (req, res, next) {
+    // console.log(req.session);
+    if (req.session.role !== 'seller' && req.session.userId) {
+        const err = 'You dont have permission to access'
+        res.redirect(`/login?{err}`);
+    } else {
+        next();
+    }
+}
 // router.get('/logout', Controller.getLogout);
 
 // router.get('/profile', Controller.getProfile),
@@ -30,16 +40,16 @@ router.get('/products', Controller.getProduct)
 router.get('/products/add', Controller.getAddProduct)
 router.post('/products/add', Controller.postAddProduct),
 
-// router.get('/categories', Controller.getCategories),
+    // router.get('/categories', Controller.getCategories),
 
-// router.get('/products/edit/:id', Controller.getEditProduct);
-// router.post('/products/edit/:id', Controller.postEditProduct);
-// router.get('/products/delete/:id', Controller.getDeleteProduct);
-// router.get('products/buy/:id', Controller.getBuyProduct);
-// router.post('/products/buy/:id', Controller.postBuyProduct);
+    // router.get('/products/edit/:id', role, Controller.getEditProduct);
+    // router.post('/products/edit/:id', role, Controller.postEditProduct);
+    // router.get('/products/delete/:id', role, Controller.getDeleteProduct);
+    // router.get('products/buy/:id', Controller.getBuyProduct);
+    // router.post('/products/buy/:id', Controller.postBuyProduct);
 
-// router.get('/categories/edit/:id', Controller.getEditCategory),
-// router.post('/categories/edit/:id', Controller.postEditCategory),
-// router.get('/categories/delete/:id', Controller.getDeleteCategory),
+    // router.get('/categories/edit/:id', role, Controller.getEditCategory),
+    // router.post('/categories/edit/:id', role, Controller.postEditCategory),
+    // router.get('/categories/delete/:id', role, Controller.getDeleteCategory),
 
-module.exports = router;
+    module.exports = router;

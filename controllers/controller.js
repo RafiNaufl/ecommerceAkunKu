@@ -18,6 +18,7 @@ class Controller {
                 if (isPasswordValid) {
                     //case berhasil login
                     req.session.userId = user.id;
+                    req.session.role=user.role;
                     return res.redirect('/products');
                 } else {
                     return res.redirect('/login');
