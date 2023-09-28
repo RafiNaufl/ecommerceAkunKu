@@ -2,7 +2,8 @@ const { Category, Product, User, Profile } = require('../models/index');
 class Controller {
 
     static getLogin(req, res) {
-        res.render('login');
+        res.send('test login');
+        // res.render('login');
     }
 
     static postLogin(req, res) {
@@ -19,6 +20,47 @@ class Controller {
             res.send(products);
         })
         .catch((err) => {res.send(err)});
+    }
+
+    static getAddProduct(req, res) {
+        res.send('test addProduct');
+        // res.render('ini diganti jadi name file ejs form addProduct di view');
+    }
+
+    static postAddProduct(req, res) {
+        const { name, description, price, photo, stock } = req.body;
+        console.log(req.body);
+        Product.create({
+            name: name,
+            description: description,
+            price: price,
+            photo: photo,
+            stock: stock
+        })
+        .then((products) => {
+            return products
+        })
+        .then((products)=>{
+            res.redirect('/products');
+        })
+        .catch((err) => {res.send(err)});
+    }
+
+    static getCategories(req, res) {
+        Category.findAll()
+       .then((categories) => {
+        res.send(categories);
+       })
+    }
+
+    static logout(req, res) {
+        req.session.destroy((err) => {
+            if (err) {
+                res.send(err);
+                return;
+            }
+            res.redirect('/login');
+        })
     }
 }
 
