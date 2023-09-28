@@ -7,6 +7,9 @@ const Controller = require('../controllers/controller');
 router.get('/', Controller.getProduct);
 router.get('/products/add', Controller.getAddProduct);
 router.post('/products/add', Controller.postAddProduct);
+router.get('/products/edit/:id', Controller.getEditProduct);
+router.post('/products/edit/:id', Controller.postEditProduct);
+router.get('/products/delete/:id', Controller.getDeleteProduct);
 // router.get('/login', Controller.getLogin);
 // router.post('/login', Controller.postLogin);
 // router.get('/register', Controller.getRegister)
