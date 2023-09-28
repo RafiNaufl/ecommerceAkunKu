@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 // router.get('/profile', Controller.getProfile),
 // router.post('/profile', Controller.postProfile),
 
-router.get('/products', Controller.getProduct),
+router.get('/products', Controller.getProduct)
 // router.get('/products/add', Controller.getAddProduct),
 // router.post('/products/add', Controller.postAddProduct),
 
@@ -32,8 +32,3 @@ router.get('/products', Controller.getProduct),
 // router.post('/categories/edit/:id', Controller.postEditCategory),
 // router.get('/categories/delete/:id', Controller.getDeleteCategory),
 
-
-
-
-
-module.exports =router
