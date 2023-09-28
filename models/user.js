@@ -1,5 +1,5 @@
 'use strict';
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const {
   Model
 } = require('sequelize');
@@ -61,13 +61,21 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Password must be at least 6 characters long'
         }
       }
-    }
+    },
+    role: DataTypes.STRING
   }, {
+    hooks:{
+      beforeCreate(instance, options) {
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(instance.password, salt);
+        instance.password = hash;
+      }
+    },
     sequelize,
     modelName: 'User',
   });
-  User.addHook( 'beforeCreate', (user, options) => {
-    user.password = bcrypt.hashSync(user.password, 10);
-  })
+  // User.addHook( 'beforeCreate', (user, options) => {
+  //   user.password = bcrypt.hashSync(user.password, 10);
+  // })
   return User;
 };

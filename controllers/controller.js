@@ -21,17 +21,22 @@ class Controller {
 
     static postRegister(req, res) {
         const { username, email, password } = req.body;
-        User.findOne({where : {email: email, username: username}})
-        .then((user) => {
-            if (user) {
-                throw new Error ('User already exists');
-            }
-            return User.create({
-                username: username,
-                email: email,
-                password: password
-            })
+        User.create({
+            username: username,
+            email: email,
+            password: password,
+            role: role
         })
+        .then ((user) => {
+            res.redirect('/login');
+        })
+        // User.findOne({where : {email: email, username: username}})
+        // .then((user) => {
+        //     if (user) {
+        //         throw new Error ('User already exists');
+        //     }
+            
+        // })
     }
 
     static getProduct(req, res) {
